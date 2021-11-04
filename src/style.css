@@ -1,15 +1,3 @@
-/* 
-body{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: red;
-  margin-top: 50px;
+body {
+  background-color: rgb(245, 245, 245);
 }
-
-.main-container {
-  background-color: antiquewhite;
-  display: flex;
-  flex-direction: column;  
-  width: 500px;
-} */
