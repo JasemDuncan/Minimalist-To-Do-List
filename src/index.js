@@ -1,4 +1,5 @@
 import './style.css';
+import * as aux from './statusUpdate';
 
 const arrObjTask = [
   {
@@ -17,6 +18,16 @@ const arrObjTask = [
     index: 2,
   },
 ];
+
+function ReorderTask(arrObjTask) {
+  return arrObjTask.sort((a, b) => ((a.index > b.index) ? 1 : -1));
+}
+
+const arrObjTaskReorder = ReorderTask(arrObjTask);
+
+function saveLocalStorage(arrToSave) {
+  window.localStorage.setItem('MinimalistToDoList', JSON.stringify(arrToSave));
+}
 
 function loadTask(arr) {
   const ulTask = document.getElementById('ulTask');
@@ -45,6 +56,7 @@ function loadTask(arr) {
   for (let i = 0; i < arr.length; i += 1) {
     const lsTask = document.createElement('li');
     lsTask.classList = 'list-group-item';
+    lsTask.id = arr[i].index;
 
     const itemGroup = document.createElement('div');
     itemGroup.classList = 'input-group';
@@ -56,6 +68,14 @@ function loadTask(arr) {
     chkCompleted.type = 'checkbox';
     chkCompleted.checked = arr[i].completed;
     chkCompleted.classList = 'form-check-input mt-0';
+
+    chkCompleted.addEventListener('change', () => {
+      const arrAux = aux.statusUpdate(arr, arr[i].index);
+      // ReorderTask(arrAux);
+      saveLocalStorage(arrAux);
+      // const arrAux2 = loadLocalStorage();
+      // loadTask(arrAux2);
+    });
 
     const txtDescription = document.createElement('input');
     txtDescription.value = arr[i].description;
@@ -84,10 +104,20 @@ function loadTask(arr) {
   ulTask.appendChild(btnDelete);
 }
 
-function ReorderTask(arrObjTask) {
-  return arrObjTask.sort((a, b) => ((a.index > b.index) ? 1 : -1));
+function loadLocalStorage() {
+  return JSON.parse(window.localStorage.getItem('MinimalistToDoList'));
 }
 
-const arrObjTaskReorder = ReorderTask(arrObjTask);
+function checkLocalStorage() {
+  return JSON.parse(window.localStorage.getItem('MinimalistToDoList'));
+}
 
-loadTask(arrObjTaskReorder);
+window.onload = () => {
+  if (checkLocalStorage()) {
+    const arrOTRLS = loadLocalStorage();
+    loadTask(arrOTRLS);
+  } else {
+    saveLocalStorage(arrObjTaskReorder);
+    loadTask(arrObjTaskReorder);
+  }
+};
