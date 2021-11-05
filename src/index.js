@@ -71,10 +71,7 @@ function loadTask(arr) {
 
     chkCompleted.addEventListener('change', () => {
       const arrAux = aux.statusUpdate(arr, arr[i].index);
-      // ReorderTask(arrAux);
       saveLocalStorage(arrAux);
-      // const arrAux2 = loadLocalStorage();
-      // loadTask(arrAux2);
     });
 
     const txtDescription = document.createElement('input');
