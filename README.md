@@ -1,8 +1,8 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# WEBPACK BOILERPLATE
+# MINIMALIST TO DO LIST
 
-> This is a template to start a JS project using webpack.
+> "To-do list" is a tool that helps to organize your day. It simply lists the things that you need to do and allows you to mark them as complete. It was build using ES6 and Webpack!
 
 ![screenshot](./app_screenshot.png)
 
@@ -16,13 +16,17 @@ Additional description about the project and its features.
 
 ## Getting Started
 
-**This is a template using webpack.**
+**This is a PR using webpack.**
 
 
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running ,follow these simple example setup steps.
 
 ### Setup
-https://webpack.js.org/guides/getting-started/
+- Clone the REPO
+- Open the terminal
+- Run: npm install
+- Run: npm run build
+- Run: npm start
 
 
 ## Authors
