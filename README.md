@@ -19,7 +19,7 @@ Additional description about the project and its features.
 **This is a PR using webpack.**
 
 
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running ,follow these simple example setup steps.
 
 ### Setup
 - Clone the REPO
