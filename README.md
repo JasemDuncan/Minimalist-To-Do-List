@@ -8,6 +8,10 @@
 
 Additional description about the project and its features.
 
+## Live Demo
+
+- Link: [Minimalist To Do List](https://jasemduncan.github.io/Minimalist-To-Do-List/)
+
 ## Built With
 
 - HTML
